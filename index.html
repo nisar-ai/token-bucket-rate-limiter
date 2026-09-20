@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Token Bucket Rate Limiter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="dashboard">
+    <header>
+      <p class="eyebrow">CLOUD SYSTEMS DEMO</p>
+      <h1>Token Bucket Rate Limiter</h1>
+      <p class="subtitle">
+        Token Bucket traffic simulation for a serverless API
+      </p>
+    </header>
+
+    <section class="controls panel">
+      <div>
+        <h2>Traffic simulator</h2>
+        <p class="muted">
+          Choose how many requests should be sent each second.
+        </p>
+      </div>
+
+      <label for="rateSlider">
+        Request rate:
+        <span id="rateValue">5</span> requests/second
+      </label>
+
+      <input
+        id="rateSlider"
+        type="range"
+        min="1"
+        max="20"
+        value="5"
+      />
+
+      <div class="button-row">
+        <button id="startButton">Start Simulation</button>
+        <button id="stopButton" class="secondary" disabled>
+          Stop Simulation
+        </button>
+      </div>
+
+      <p id="simulationStatus" class="status">
+        Simulation is stopped.
+      </p>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-card panel">
+        <span class="stat-label">Allowed</span>
+        <strong id="allowedCount">0</strong>
+      </div>
+
+      <div class="stat-card panel">
+        <span class="stat-label">Throttled</span>
+        <strong id="throttledCount">0</strong>
+      </div>
+
+      <div class="stat-card panel">
+        <span class="stat-label">Tokens remaining</span>
+        <strong id="tokensRemaining">10</strong>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <h2>Token bucket</h2>
+        <span id="bucketPercentage">100%</span>
+      </div>
+
+      <div class="bucket">
+        <div id="bucketFill" class="bucket-fill"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <h2>Request log</h2>
+        <button id="clearLogButton" class="small-button">
+          Clear Log
+        </button>
+      </div>
+
+      <div id="requestLog" class="request-log">
+        <p class="muted">No simulated requests yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -8,7 +8,7 @@ The project includes a Netlify serverless function and an interactive browser da
 
 Live demo link:
 
-[Add the Netlify URL here after deployment.](https://token-bucket-rate-limiter.netlify.app/?)
+(https://token-bucket-rate-limiter.netlify.app/?)
 
 ## Features
 
